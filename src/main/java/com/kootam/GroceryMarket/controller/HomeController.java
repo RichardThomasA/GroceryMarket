@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kootam.GroceryMarket.dao.UserDAO;
 import com.kootam.GroceryMarket.model.User;
-import com.kootam.GroceryMarket.repository.UserRepository;
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
 	
 	@Autowired
-	private UserRepository userRepository;
+	private UserDAO userDAO;
 	
 	@GetMapping("/")
 	public String homePage(Model model) {
@@ -31,7 +31,7 @@ public class HomeController {
 			@RequestParam(value="login-password") String password,
 			Model model) {
 		
-		User user = userRepository.getUserByUsernameAndPassword(username,password);
+		User user = userDAO.getUserByUsernameAndPassword(username,password);
 		//User user = null;
 		if(user!=null) {
 			

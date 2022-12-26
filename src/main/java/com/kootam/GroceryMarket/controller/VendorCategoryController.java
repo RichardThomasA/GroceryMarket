@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.kootam.GroceryMarket.dao.VendorCategoryDAO;
 import com.kootam.GroceryMarket.model.VendorCategory;
-import com.kootam.GroceryMarket.repository.VendorCategoryRepository;
 
 @Controller
 @RequestMapping("/vendorCategory")
 public class VendorCategoryController {
 
 	@Autowired
-	private VendorCategoryRepository venCategoryRepository;
+	private VendorCategoryDAO venCategoryDAO;
 	
 	/*
 	 * Vendor Category 
@@ -26,7 +26,7 @@ public class VendorCategoryController {
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveVendorCategory(VendorCategory venCategory) {
-		venCategoryRepository.save(venCategory);
+		venCategoryDAO.save(venCategory);
 		return "";
 	}
 	
@@ -36,7 +36,7 @@ public class VendorCategoryController {
 	 */
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String updateVendorCategory(VendorCategory venCategory) {
-		venCategoryRepository.save(venCategory);
+		venCategoryDAO.save(venCategory);
 		return "";
 	}
 	
@@ -46,14 +46,14 @@ public class VendorCategoryController {
 	 */
 	@RequestMapping(value = "/getAllVendorCategory", method = RequestMethod.GET)
 	public String getAllVendorCategory(Model model) {
-		List<VendorCategory> vendorCategories = venCategoryRepository.findAll();
+		List<VendorCategory> vendorCategories = venCategoryDAO.findAll();
 		model.addAttribute("vendorCategories", vendorCategories);
 		return "";
 	}
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
 	public String getVendorCategory(@PathVariable long id,Model model) {
-		VendorCategory venCategory = venCategoryRepository.getReferenceById(id);
+		VendorCategory venCategory = venCategoryDAO.getReferenceById(id);
 		model.addAttribute("venCategory", venCategory);
 		return "";
 	}
@@ -64,6 +64,7 @@ public class VendorCategoryController {
 	 */
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public String deleteVendorCategory(@PathVariable long id) {
+		venCategoryDAO.deleteById(id);
 		return "";
 	}
 }
