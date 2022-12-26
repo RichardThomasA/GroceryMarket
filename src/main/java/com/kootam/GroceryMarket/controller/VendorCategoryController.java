@@ -19,6 +19,10 @@ public class VendorCategoryController {
 	@Autowired
 	private VendorCategoryDAO venCategoryDAO;
 	
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String AddVendorCategory() {
+		return "/VendorCategory/AddVendorCategory";
+	}
 	/*
 	 * Vendor Category 
 	 * All CREATE methods
@@ -27,17 +31,23 @@ public class VendorCategoryController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveVendorCategory(VendorCategory venCategory) {
 		venCategoryDAO.save(venCategory);
-		return "";
+		return "redirect:/vendorCategory/getAllVendorCategory";
 	}
 	
 	/*
 	 * Vendor Category
 	 * All UPDATE methods
 	 */
+	@RequestMapping(value = "/editVenCat/{id}", method = RequestMethod.GET)
+	public String editVendorCategory(@PathVariable Long id,Model model) {
+		VendorCategory venCat = venCategoryDAO.getReferenceById(id);
+		model.addAttribute("venCat", venCat);
+		return "/VendorCategory/EditVendorCategory";
+	}
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String updateVendorCategory(VendorCategory venCategory) {
 		venCategoryDAO.save(venCategory);
-		return "";
+		return "redirect:/vendorCategory/getAllVendorCategory";
 	}
 	
 	/*
@@ -48,23 +58,23 @@ public class VendorCategoryController {
 	public String getAllVendorCategory(Model model) {
 		List<VendorCategory> vendorCategories = venCategoryDAO.findAll();
 		model.addAttribute("vendorCategories", vendorCategories);
-		return "";
+		return "/VendorCategory/ViewAllVendorCategory";
 	}
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
 	public String getVendorCategory(@PathVariable long id,Model model) {
 		VendorCategory venCategory = venCategoryDAO.getReferenceById(id);
 		model.addAttribute("venCategory", venCategory);
-		return "";
+		return "/VendorCategory/ViewAllVendorCategory";
 	}
 	
 	/*
 	 * Vendor Category
 	 * All DELETE methods
 	 */
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteVenCat/{id}", method = RequestMethod.GET)
 	public String deleteVendorCategory(@PathVariable long id) {
 		venCategoryDAO.deleteById(id);
-		return "";
+		return "redirect:/vendorCategory/getAllVendorCategory";
 	}
 }
