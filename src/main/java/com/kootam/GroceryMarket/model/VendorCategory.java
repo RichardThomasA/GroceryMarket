@@ -1,15 +1,14 @@
 package com.kootam.GroceryMarket.model;
 
-import java.util.Set;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "vendor_category")
 public class VendorCategory {
 
 	@Id
@@ -19,9 +18,6 @@ public class VendorCategory {
 	
 	@Column(name = "v_cat_name")
 	private String vendorCategoryName;
-	
-	@OneToMany(mappedBy = "vendor")
-	private Set<Vendor> vendors;
 	
 	public VendorCategory() {
 		
@@ -49,14 +45,4 @@ public class VendorCategory {
 		this.vendorCategoryName = vendorCategoryName;
 	}
 
-	public Set<Vendor> getVendors() {
-		return vendors;
-	}
-
-	public void setVendors(Set<Vendor> vendors) {
-		this.vendors = vendors;
-	}
-	
-	
-	
 }
