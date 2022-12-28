@@ -28,7 +28,6 @@
 	                          <button type="submit" id="user-submit" class="btn btn-outline-primary btn-lg">Update Vendor Category</button>
 	                        </div> 
 	                    </form>
-	                    
 	                </div>
 	            </div>
 	        </section>

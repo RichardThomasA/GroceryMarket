@@ -3,11 +3,13 @@ package com.kootam.GroceryMarket.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kootam.GroceryMarket.dao.VendorCategoryDAO;
 import com.kootam.GroceryMarket.model.VendorCategory;
@@ -59,6 +61,16 @@ public class VendorCategoryController {
 		List<VendorCategory> vendorCategories = venCategoryDAO.findAll();
 		model.addAttribute("vendorCategories", vendorCategories);
 		return "/VendorCategory/ViewAllVendorCategory";
+	}
+	
+	@RequestMapping(value = "/getAllVendorCategoryAsJson", 
+			method = RequestMethod.GET, 
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<VendorCategory> getAllVendorCategoryAsJson() {
+		List<VendorCategory> vendorCategories = venCategoryDAO.findAll();
+		
+		return vendorCategories;
 	}
 	
 	@RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
