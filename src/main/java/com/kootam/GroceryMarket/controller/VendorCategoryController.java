@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,15 @@ public class VendorCategoryController {
 
 	@Autowired
 	private VendorCategoryDAO venCategoryDAO;
+	
+	public ResponseEntity<List<VendorCategory>> getVendorCategoryAsJson() {
+		List<VendorCategory> vendorCategories = venCategoryDAO.findAll();
+		if(vendorCategories!=null) {
+			return ResponseEntity.ok(vendorCategories);
+		}else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String AddVendorCategory() {
