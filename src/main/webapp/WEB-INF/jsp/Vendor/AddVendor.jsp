@@ -18,8 +18,8 @@
 	                          <h1>Add Vendor</h1>
 	                        </div>
 	                        <hr>
-	                        <label>Address</label>
-	                        <hr>
+	                        <h4>Address</h4>
+	                        
 	                        <div class="form-floating mb-3">
 	                          <input type="text" id="houseName" name="houseName" class="form-control" placeholder="Enter the House Name">
 	                          <label for="houseName" class="form-label">House name</label>
@@ -44,11 +44,12 @@
 	                          <input type="number" id="pinCode" name="pinCode" class="form-control" placeholder="Enter the PIN code">
 	                          <label for="state" class="form-label">PIN Code</label>
 	                        </div>
-	                        <hr>
+							<hr>
 	                        <div class="mb-3">
+								<input hidden type="text" id="vendorCategoryId" name="vendorCategoryId" value="">
 	                            <label class="form-label">Select Vendor Category</label>
 	                            <select class="form-select" name="vendorCategoryName" aria-label="usertype" id="vendorCategoryName">
-	                                <option value = "" selected>--Select--</option>
+	                                
 	                            </select>
 	                        </div>
 	                        <hr>
@@ -57,15 +58,17 @@
 	                          <label for="vendorName" class="form-label">Vendor Name</label>
 	                        </div>
 	                        <div class="form-floating mb-3">
-	                          <input type="text" id="vendorPassword" name="vendorPassword" class="form-control" placeholder="Enter the Vendor Password">
+	                          <input type="password" id="vendorPassword" name="vendorPassword" class="form-control" placeholder="Enter the Vendor Password">
 	                          <label for="vendorPassword" class="form-label">Vendor Password</label>
 	                        </div>
-	                        <div class="form-floating mb-3">
-	                          <input type="text" id="vendorUserType" name="vendorUserType" class="form-control" placeholder="Enter the Vendor UserType">
-	                          <label for="vendorUserType" class="form-label">Vendor UserType</label>
+							<div class="mb-3">
+								<label class="form-label">Select Vendor Category</label>
+	                            <select class="form-select" name="vendorUserType" aria-label="usertype" id="vendorUserType">
+	                                
+	                            </select>
 	                        </div>
 	                        <div class="d-grid gap-2 mx-auto">
-	                          <button type="submit" id="user-submit" class="btn btn-outline-primary btn-lg">Add User</button>
+	                          <button type="submit" id="user-submit" class="btn btn-outline-primary btn-lg">Add Vendor</button>
 	                        </div> 
 	                    </form>
 	                    
@@ -73,7 +76,7 @@
 	            </div>
 	        </section>
 		</main>
-		<script src="/js/AddUser.js"></script>
+		<script src="/js/AddVendor.js"></script>
 		<script src="/js/bootstrap/bootstrap.bundle.js"></script>
 	</body>
 </html>
