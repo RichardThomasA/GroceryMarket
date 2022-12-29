@@ -27,7 +27,7 @@ public class Vendor {
 	@JoinColumn(name = "addr_id")
 	private Address address;
 	@ManyToOne
-	@JoinColumn(name = "v_cat_id", nullable = false)
+	@JoinColumn(name = "v_cat_id")
 	private VendorCategory vendorCategory;
 	
 	@Column(name = "ve_name")
