@@ -92,4 +92,13 @@ public class VendorController {
 		userTypes.put(Vendor.USERTYPE_ORGANISATION, Vendor.USERTYPE_ORGANISATION);
 		return ResponseEntity.ok(userTypes);
 	}
+	@GetMapping(value ="/listVendors")
+	public ResponseEntity<List<Vendor>> listVendors(){
+		List<Vendor> vendorsList = vendorDAO.findAll();
+		if(vendorsList!=null) {
+			return ResponseEntity.ok(vendorsList);
+		}else {
+			return ResponseEntity.notFound().build();
+		}
+	}
 }
