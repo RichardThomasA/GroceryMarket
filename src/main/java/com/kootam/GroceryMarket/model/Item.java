@@ -19,8 +19,8 @@ public class Item {
 	private Long itemId;
 	
 	@ManyToOne
-	@JoinColumn(name = "s_cat_id")
-	private StockCategory stockCategory;
+	@JoinColumn(name = "item_cat_id")
+	private ItemCategory itemCategory;
 	
 	@Column(name = "it_name")
 	private String itemName;
@@ -29,9 +29,9 @@ public class Item {
 		super();
 	}
 
-	public Item(StockCategory stockCategory, String itemName) {
+	public Item(ItemCategory itemCategory, String itemName) {
 		super();
-		this.stockCategory = stockCategory;
+		this.itemCategory = itemCategory;
 		this.itemName = itemName;
 	}
 
@@ -43,12 +43,12 @@ public class Item {
 		this.itemId = itemId;
 	}
 
-	public StockCategory getStockCategory() {
-		return stockCategory;
+	public ItemCategory getStockCategory() {
+		return itemCategory;
 	}
 
-	public void setStockCategory(StockCategory stockCategory) {
-		this.stockCategory = stockCategory;
+	public void setStockCategory(ItemCategory itemCategory) {
+		this.itemCategory = itemCategory;
 	}
 
 	public String getItemName() {
