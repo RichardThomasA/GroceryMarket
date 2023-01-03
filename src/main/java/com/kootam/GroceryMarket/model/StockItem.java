@@ -13,6 +13,10 @@ import jakarta.persistence.Table;
 @Table(name="stock_items")
 public class StockItem {
 
+	public static final String ITEM_KG = "KILOGRAM";
+	public static final String ITEM_GRAM = "GRAM";
+	public static final String ITEM_NOS = "NUMBERS";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sti_id")
