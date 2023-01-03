@@ -24,7 +24,7 @@ window.onload = (loadEvent) =>{
 
             
     });
-    fetch ("//Vendor/listVendors")
+    fetch ("/Vendor/listVendors")
     .then(response => response.json())
     .then(jsonData => {
         //convet to json object
