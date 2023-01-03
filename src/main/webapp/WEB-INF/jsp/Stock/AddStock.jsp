@@ -15,67 +15,58 @@
 	                <div class="col-lg-4 mx-auto card form-container">
 	                    <form method="post" action="/Vendor/">
 	                        <div class="d-flex justify-content-center form-header">
-	                          <h1>Add Stock</h1>
+	                          <h1>Add Stock Item</h1>
 	                        </div>
 	                        <hr>
 	                        <h4>Item</h4>
 	                        
 	                        <div class="mb-3">
-								<input hidden type="text" id="ItemCategoryId" name="vendorCategoryId" value="">
-	                            <label class="form-label">Select Item Category</label>
+								<label class="form-label">Select Item Category</label>
 	                            <select class="form-select" name="itemCategory" aria-label="usertype" id="itemCategory">
 	                                
 	                            </select>
 	                        </div>
 	                        <div class="form-floating mb-3">
-	                          <input type="text" id="itemCategory" name="itemCategory" class="form-control" placeholder="Enter the House Name">
-	                          <label for="itemCategory" class="form-label">Item Category</label>
-	                        </div>
-	                        <div class="form-floating mb-3">
 	                          <input type="text" id="itemName" name="itemName" class="form-control" placeholder="Enter the Item name">
 	                          <label for="street" class="form-label">Item Name</label>
 	                        </div>
-	                        <div class="form-floating mb-3">
-	                          <input type="text" id="postOffice" name="postOffice" class="form-control" placeholder="Enter the post office name">
-	                          <label for="postOffice" class="form-label">Post Office</label>
+
+							<hr>
+	                        <h4>Stock</h4>
+							<div class="mb-3">
+								<label class="form-label">Select Vendor Supplying Stock</label>
+	                            <select class="form-select" name="vendor" aria-label="usertype" id="vendor">
+	                                
+	                            </select>
 	                        </div>
 	                        <div class="form-floating mb-3">
-	                          <input type="text" id="district" name="district" class="form-control" placeholder="Enter the district name">
-	                          <label for="district" class="form-label">District</label>
+	                          <input type="text" id="stockInvoiceNumber" name="stockInvoiceNumber" class="form-control" placeholder="Enter the invoice number">
+	                          <label for="stockInvoiceNumber" class="form-label">Stock Invoice Number</label>
 	                        </div>
 	                        <div class="form-floating mb-3">
-	                          <input type="text" id="state" name="state" class="form-control" placeholder="Enter the name of the state">
-	                          <label for="state" class="form-label">State</label>
+	                          <input type="date" id="stockDate" name="stockDate" class="form-control" placeholder="Enter the stock date">
+	                          <label for="stockDate" class="form-label">Stock Date</label>
+	                        </div>
+
+							<hr>
+	                        <h4>Stock Details</h4>
+	                        <div class="form-floating mb-3">
+	                          <input type="number" id="quantity" name="quantity" class="form-control" placeholder="Enter the Quantity">
+	                          <label for="quantity" class="form-label">Quantity</label>
+	                        </div>
+							<div class="mb-3">
+								<label class="form-label">Unit Of Quantity</label>
+	                            <select class="form-select" name="unitOfQuantity" aria-label="unitOfQuantity" id="unitOfQuantity">
+	                                
+	                            </select>
 	                        </div>
 	                        <div class="form-floating mb-3">
 	                          <input type="number" id="pinCode" name="pinCode" class="form-control" placeholder="Enter the PIN code">
-	                          <label for="state" class="form-label">PIN Code</label>
+	                          <label for="state" class="form-label">Vendor Quoted Price Per Unit</label>
 	                        </div>
-							<hr>
-	                        <div class="mb-3">
-								<input hidden type="text" id="vendorCategoryId" name="vendorCategoryId" value="">
-	                            <label class="form-label">Select Vendor Category</label>
-	                            <select class="form-select" name="vendorCategoryName" aria-label="usertype" id="vendorCategoryName">
-	                                
-	                            </select>
-	                        </div>
-	                        <hr>
-	                        <div class="form-floating mb-3">
-	                          <input type="text" id="vendorName" name="vendorName" class="form-control" placeholder="Enter the Vendor Name">
-	                          <label for="vendorName" class="form-label">Vendor Name</label>
-	                        </div>
-	                        <div class="form-floating mb-3">
-	                          <input type="password" id="vendorPassword" name="vendorPassword" class="form-control" placeholder="Enter the Vendor Password">
-	                          <label for="vendorPassword" class="form-label">Vendor Password</label>
-	                        </div>
-							<div class="mb-3">
-								<label class="form-label">Select Vendor Category</label>
-	                            <select class="form-select" name="vendorUserType" aria-label="usertype" id="vendorUserType">
-	                                
-	                            </select>
-	                        </div>
+							
 	                        <div class="d-grid gap-2 mx-auto">
-	                          <button type="submit" id="user-submit" class="btn btn-outline-primary btn-lg">Add Vendor</button>
+	                          <button type="submit" id="user-submit" class="btn btn-outline-primary btn-lg">Add Stock Item</button>
 	                        </div> 
 	                    </form>
 	                    
@@ -83,7 +74,7 @@
 	            </div>
 	        </section>
 		</main>
-		<script src="/js/AddVendor.js"></script>
+		<script src="/js/AddStock.js"></script>
 		<script src="/js/bootstrap/bootstrap.bundle.js"></script>
 	</body>
 </html>
