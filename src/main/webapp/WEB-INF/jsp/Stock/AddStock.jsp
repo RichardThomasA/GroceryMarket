@@ -13,7 +13,7 @@
 			<section>
 	         	<div class ="container">
 	                <div class="col-lg-4 mx-auto card form-container">
-	                    <form method="post" action="/Vendor/">
+	                    <form method="post" action="/StockItem/saveStockItem">
 	                        <div class="d-flex justify-content-center form-header">
 	                          <h1>Add Stock Item</h1>
 	                        </div>
@@ -60,8 +60,11 @@
 	                                
 	                            </select>
 	                        </div>
+	                        
+	                        <hr>
+	                        <h4>Vendor Quoted Price</h4>
 	                        <div class="form-floating mb-3">
-	                          <input type="number" id="pinCode" name="pinCode" class="form-control" placeholder="Enter the PIN code">
+	                          <input type="number" step="0.01" id="vendorPrice" name="vendorPrice" class="form-control" placeholder="Enter the Price">
 	                          <label for="state" class="form-label">Vendor Quoted Price Per Unit</label>
 	                        </div>
 							
